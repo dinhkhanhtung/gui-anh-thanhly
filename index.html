@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kho Ảnh Thanh Lý & Bể Hải Sản Cũ - Lấy Link Trực Tiếp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #090d16;
+            --bg-card: rgba(16, 24, 40, 0.85);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f3f4f6;
+            --text-secondary: #94a3b8;
+            --accent-primary: #06b6d4;     /* Cyan Hải Sản */
+            --accent-warm: #f59e0b;        /* Amber Thanh Lý Máy */
+            --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #f59e0b 100%);
+            --success: #10b981;
+            --danger: #ef4444;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
+                        var(--bg-main);
+            color: var(--text-primary);
+            padding: 24px 16px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 620px;
+        }
+
+        /* Header Card */
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 26px 22px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 22px;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            background: rgba(6, 182, 212, 0.12);
+            color: var(--accent-primary);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            margin-bottom: 8px;
+        }
+
+        .header h1 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-settings {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-settings:hover {
+            color: var(--accent-warm);
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: rotate(45deg);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 5px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 10px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .tab-btn.active {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label.field-label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px 14px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: #fff;
+            font-size: 0.92rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        select:focus, input[type="text"]:focus {
+            border-color: var(--accent-primary);
+        }
+
+        select option {
+            background: #111827;
+            color: #fff;
+        }
+
+        /* Options grid */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: var(--radius-md);
+            margin-bottom: 18px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .option-item input {
+            display: none;
+        }
+
+        .checkbox-custom {
+            width: 17px;
+            height: 17px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 4px;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.03);
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .option-item input:checked + .checkbox-custom {
+            background: var(--accent-warm);
+            border-color: var(--accent-warm);
+        }
+
+        .option-item input:checked + .checkbox-custom::after {
+            content: "✓";
+            color: #000;
+            font-size: 0.72rem;
+            font-weight: 800;
+        }
+
+        .option-item input:checked ~ span {
+            color: #fff;
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 2px dashed rgba(6, 182, 212, 0.35);
+            background: rgba(6, 182, 212, 0.03);
+            padding: 26px 16px;
+            border-radius: 16px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 18px;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .upload-area:hover {
+            border-color: var(--accent-primary);
+            background: rgba(6, 182, 212, 0.06);
+        }
+
+        .upload-icon {
+            font-size: 2.2rem;
+            margin-bottom: 4px;
+        }
+
+        .upload-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+
+        .upload-desc {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        /* Thumbnails Preview before upload */
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 8px;
+            margin-bottom: 16px;
+            max-height: 190px;
+            overflow-y: auto;
+            padding: 4px;
+        }
+
+        .preview-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn-remove-preview {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 11px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Action Button */
+        .btn-action {
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius-md);
+            font-size: 0.96rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            background: var(--accent-gradient);
+            color: #0b0f19;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25);
+        }
+
+        .btn-action:hover {
+            opacity: 0.94;
+            transform: translateY(-1px);
+        }
+
+        .btn-action:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Status & Progress */
+        .status-box {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        /* Result Area */
+        .result-container {
+            margin-top: 18px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+            display: none;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .result-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+
+        .btn-copy-all {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
+
+        .btn-copy-all:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .result-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        .result-card {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .result-thumb {
+            width: 54px;
+            height: 54px;
+            border-radius: 6px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .result-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .result-name {
+            font-size: 0.82rem;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 4px;
+        }
+
+        .result-url {
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .result-btns {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .btn-sm {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            padding: 6px 9px;
+            border-radius: 6px;
+            font-size: 0.74rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-sm:hover {
+            background: var(--accent-primary);
+            color: #000;
+            border-color: var(--accent-primary);
+        }
+
+        .btn-sm-warm:hover {
+            background: var(--accent-warm);
+            color: #000;
+            border-color: var(--accent-warm);
+        }
+
+        /* Tab 2: Gallery Explorer */
+        .gallery-filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 10px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding: 4px;
+        }
+
+        .gallery-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-primary);
+        }
+
+        .gallery-card-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            background: #000;
+            cursor: pointer;
+        }
+
+        .gallery-card-body {
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .gallery-card-title {
+            font-size: 0.72rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--text-primary);
+        }
+
+        .gallery-card-actions {
+            display: flex;
+            gap: 4px;
+        }
+
+        .gallery-card-actions .btn-sm {
+            flex: 1;
+            justify-content: center;
+            padding: 4px 6px;
+            font-size: 0.7rem;
+        }
+
+        /* Settings Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 16px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: #111827;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 480px;
+            padding: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .modal-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            background: #1e293b;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Spinner */
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(0, 0, 0, 0.3);
+            border-top: 2px solid #000;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <button class="btn-settings" id="btnSettings" title="Cài đặt">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+
+        <div class="header">
+            <span class="badge-tag">Hệ Thống Phân Loại & CDN Ảnh</span>
+            <h1>Kho Ảnh Thanh Lý & Hải Sản</h1>
+            <p>Tải ảnh tự động vào Drive & lấy link trực tiếp cực nhanh</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" id="tabUploadBtn" onclick="switchTab('upload')">
+                <span>📤</span> Tải & Lấy Link Ảnh
+            </button>
+            <button class="tab-btn" id="tabGalleryBtn" onclick="switchTab('gallery')">
+                <span>🖼️</span> Kho Ảnh Trong Drive
+            </button>
+        </div>
+
+        <!-- TAB 1: UPLOAD & GET LINK -->
+        <div id="tabUploadView">
+            <div class="form-group">
+                <label class="field-label">1. Phân loại danh mục lưu trữ</label>
+                <select id="categorySelect">
+                    <option value="Be_Hai_San_Cu">🐟 Bể Hải Sản Cũ (Bể kính, tràn, composite...)</option>
+                    <option value="May_Lam_Lanh_Chiller">❄️ Máy Làm Lạnh Hải Sản (Chiller / Dàn lạnh)</option>
+                    <option value="May_Moc_Thiet_Bi_Cong_Nghiep">⚙️ Máy Móc Thiết Bị Công Nghiệp</option>
+                    <option value="Thanh_Ly_Nha_Xuong_Kho">🏭 Thanh Lý Xưởng, Kho & Kệ Hàng</option>
+                    <option value="Thiet_Bi_Bep_Inox">🍴 Thiết Bị Bếp & Đồ Inox Nhà Hàng</option>
+                    <option value="Hoa_Don_Chung_Tu">📄 Hóa Đơn & Chứng Từ Giao Hàng</option>
+                </select>
+            </div>
+
+            <div class="options-grid">
+                <label class="option-item">
+                    <input type="checkbox" id="chkCompress" checked>
+                    <div class="checkbox-custom"></div>
+                    <span>Nén ảnh tối ưu (Web)</span>
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" id="chkWatermark" checked>
+                    <div class="checkbox-custom"></div>
+                    <span>Đóng dấu Watermark</span>
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" id="chkAutoCopy" checked>
+                    <div class="checkbox-custom"></div>
+                    <span>Tự động sao chép Link</span>
+                </label>
+                <label class="option-item">
+                    <input type="checkbox" id="chkDatePrefix" checked>
+                    <div class="checkbox-custom"></div>
+                    <span>Chèn mã ngày vào tên</span>
+                </label>
+            </div>
+
+            <!-- Upload drag/drop -->
+            <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                <div class="upload-icon">📸</div>
+                <div class="upload-title" id="uploadLabel">Chọn hoặc Chụp Ảnh</div>
+                <div class="upload-desc">Hỗ trợ chọn cùng lúc nhiều file ảnh (JPG, PNG, WEBP)</div>
+                <input type="file" id="fileInput" accept="image/*" multiple style="display:none">
+            </div>
+
+            <!-- Selected previews -->
+            <div class="preview-grid" id="previewGrid" style="display:none;"></div>
+
+            <!-- Upload Action Button -->
+            <button class="btn-action" id="btnUpload" onclick="handleUpload()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <span>XỬ LÝ & TẢI VỀ GOOGLE DRIVE</span>
+            </button>
+
+            <div class="status-box" id="statusBox"></div>
+
+            <!-- Result Cards -->
+            <div class="result-container" id="resultContainer">
+                <div class="result-header">
+                    <span class="result-title">✅ Ảnh đã tải lên thành công:</span>
+                    <button class="btn-copy-all" onclick="copyAllUrls()">Sao chép tất cả URL</button>
+                </div>
+                <div class="result-list" id="resultList"></div>
+            </div>
+        </div>
+
+        <!-- TAB 2: GALLERY EXPLORER -->
+        <div id="tabGalleryView" style="display:none;">
+            <div class="gallery-filter-bar">
+                <select id="galleryCategory" onchange="loadDriveGallery()" style="flex:1;">
+                    <option value="all">📂 Tất cả danh mục</option>
+                    <option value="Be_Hai_San_Cu">🐟 Bể Hải Sản Cũ</option>
+                    <option value="May_Lam_Lanh_Chiller">❄️ Máy Làm Lạnh Chiller</option>
+                    <option value="May_Moc_Thiet_Bi_Cong_Nghiep">⚙️ Thiết Bị Công Nghiệp</option>
+                    <option value="Thanh_Ly_Nha_Xuong_Kho">🏭 Nhà Xưởng & Kệ Kho</option>
+                    <option value="Thiet_Bi_Bep_Inox">🍴 Thiết Bị Bếp & Inox</option>
+                    <option value="Hoa_Don_Chung_Tu">📄 Hóa Đơn & Chứng Từ</option>
+                </select>
+                <button class="btn-sm" onclick="loadDriveGallery()" title="Tải lại">🔄 Tải lại</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <div style="grid-column: 1 / -1; text-align: center; color: var(--text-secondary); padding: 40px 0; font-size: 0.9rem;">
+                    Bấm "Tải lại" để lấy danh sách ảnh mới nhất từ Google Drive.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Settings Modal -->
+<div class="modal" id="settingsModal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <div class="modal-title">Cấu Hình Kết Nối</div>
+            <button class="modal-close" onclick="closeSettings()">&times;</button>
+        </div>
+        <div class="form-group">
+            <label class="field-label">URL Web App Google Apps Script</label>
+            <input type="text" id="settingScriptUrl" placeholder="https://script.google.com/macros/s/.../exec">
+            <p style="font-size:0.75rem; color:var(--text-secondary); margin-top:5px;">
+                URL do Google Apps Script cung cấp sau khi bạn nhấn "Deploy" (Triển khai).
+            </p>
+        </div>
+        <div class="form-group">
+            <label class="field-label">Chữ Đóng Dấu (Watermark)</label>
+            <input type="text" id="settingWatermarkText" placeholder="Thanh Lý Công Nghiệp & Bể Hải Sản">
+        </div>
+        <div class="form-group">
+            <label class="field-label">Google Drive Folder ID (Mặc định)</label>
+            <input type="text" value="1Up9rwR973YM8LCwhvpm1U3Znjx8SsSD9" readonly style="opacity:0.7;">
+        </div>
+        <div class="modal-footer">
+            <button class="btn-sm" onclick="resetSettings()">Khôi phục</button>
+            <button class="btn-sm btn-sm-warm" onclick="saveSettings()">Lưu Cấu Hình</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Offscreen Canvas for Image Processing -->
+<canvas id="canvas" style="display:none;"></canvas>
+
+<script>
+    // Cấu hình mặc định
+    const DEFAULT_CONFIG = {
+        scriptUrl: "https://script.google.com/macros/s/AKfycbx6K_placeholder_thanhly_behaisan/exec",
+        watermarkText: "Thanh Lý Thiết Bị & Bể Hải Sản"
+    };
+
+    let selectedFiles = [];
+    let uploadedUrls = [];
+
+    // Lấy cấu hình lưu trong trình duyệt
+    function getConfig() {
+        return {
+            scriptUrl: localStorage.getItem('thanhly_script_url') || DEFAULT_CONFIG.scriptUrl,
+            watermarkText: localStorage.getItem('thanhly_watermark') || DEFAULT_CONFIG.watermarkText
+        };
+    }
+
+    // Toast UI
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.innerHTML = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // Chuyển Tab
+    function switchTab(tab) {
+        const uploadBtn = document.getElementById('tabUploadBtn');
+        const galleryBtn = document.getElementById('tabGalleryBtn');
+        const uploadView = document.getElementById('tabUploadView');
+        const galleryView = document.getElementById('tabGalleryView');
+
+        if (tab === 'upload') {
+            uploadBtn.classList.add('active');
+            galleryBtn.classList.remove('active');
+            uploadView.style.display = 'block';
+            galleryView.style.display = 'none';
+        } else {
+            galleryBtn.classList.add('active');
+            uploadBtn.classList.remove('active');
+            uploadView.style.display = 'none';
+            galleryView.style.display = 'block';
+            loadDriveGallery();
+        }
+    }
+
+    // Modal Settings
+    const settingsModal = document.getElementById('settingsModal');
+    document.getElementById('btnSettings').onclick = () => {
+        const conf = getConfig();
+        document.getElementById('settingScriptUrl').value = conf.scriptUrl;
+        document.getElementById('settingWatermarkText').value = conf.watermarkText;
+        settingsModal.classList.add('active');
+    };
+
+    function closeSettings() {
+        settingsModal.classList.remove('active');
+    }
+
+    function saveSettings() {
+        const url = document.getElementById('settingScriptUrl').value.trim();
+        const watermark = document.getElementById('settingWatermarkText').value.trim();
+        if (url) localStorage.setItem('thanhly_script_url', url);
+        if (watermark) localStorage.setItem('thanhly_watermark', watermark);
+        showToast("✅ Đã lưu cấu hình thành công!");
+        closeSettings();
+    }
+
+    function resetSettings() {
+        localStorage.removeItem('thanhly_script_url');
+        localStorage.removeItem('thanhly_watermark');
+        const conf = getConfig();
+        document.getElementById('settingScriptUrl').value = conf.scriptUrl;
+        document.getElementById('settingWatermarkText').value = conf.watermarkText;
+        showToast("Đã khôi phục cài đặt mặc định.");
+    }
+
+    // Xử lý chọn file ảnh
+    const fileInput = document.getElementById('fileInput');
+    const uploadLabel = document.getElementById('uploadLabel');
+    const previewGrid = document.getElementById('previewGrid');
+
+    fileInput.onchange = () => {
+        if (fileInput.files.length > 0) {
+            selectedFiles = Array.from(fileInput.files);
+            renderPreviews();
+        }
+    };
+
+    function renderPreviews() {
+        if (selectedFiles.length === 0) {
+            uploadLabel.innerText = "Chọn hoặc Chụp Ảnh";
+            previewGrid.style.display = "none";
+            return;
+        }
+
+        uploadLabel.innerText = `Đã chọn ${selectedFiles.length} ảnh (sẵn sàng tải)`;
+        previewGrid.innerHTML = "";
+        previewGrid.style.display = "grid";
+
+        selectedFiles.forEach((file, idx) => {
+            const item = document.createElement('div');
+            item.className = 'preview-item';
+            
+            const img = document.createElement('img');
+            img.src = URL.createObjectURL(file);
+            item.appendChild(img);
+
+            const btnRemove = document.createElement('button');
+            btnRemove.className = 'btn-remove-preview';
+            btnRemove.innerHTML = '&times;';
+            btnRemove.onclick = (e) => {
+                e.stopPropagation();
+                selectedFiles.splice(idx, 1);
+                renderPreviews();
+            };
+            item.appendChild(btnRemove);
+
+            previewGrid.appendChild(item);
+        });
+    }
+
+    // Nén ảnh & Đóng dấu Watermark bằng Canvas
+    async function processImage(file) {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.getElementById('canvas');
+                    const ctx = canvas.getContext('2d');
+
+                    let width = img.width;
+                    let height = img.height;
+                    const maxSize = 1280; // Chuẩn nét, nhẹ cho web
+
+                    const needCompress = document.getElementById('chkCompress').checked;
+                    if (needCompress) {
+                        if (width > height && width > maxSize) {
+                            height = Math.round(height * (maxSize / width));
+                            width = maxSize;
+                        } else if (height > maxSize) {
+                            width = Math.round(width * (maxSize / height));
+                            height = maxSize;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // Đóng dấu Watermark nếu được bật
+                    if (document.getElementById('chkWatermark').checked) {
+                        const conf = getConfig();
+                        const wmText = conf.watermarkText || "Thanh Lý & Bể Hải Sản Cũ";
+
+                        // Đổ nền mờ tối chân ảnh
+                        const barHeight = Math.max(50, Math.round(height * 0.08));
+                        ctx.fillStyle = "rgba(0, 0, 0, 0.55)";
+                        ctx.fillRect(0, height - barHeight, width, barHeight);
+
+                        // Chữ thương hiệu
+                        const fontSize = Math.max(16, Math.round(barHeight * 0.42));
+                        ctx.font = `600 ${fontSize}px 'Outfit', Arial, sans-serif`;
+                        ctx.fillStyle = "#f59e0b"; // Màu vàng cam nổi bật
+                        ctx.fillText(wmText, 16, height - Math.round(barHeight * 0.45));
+
+                        // Chữ thời gian nhỏ hơn
+                        const dateFontSize = Math.max(11, Math.round(fontSize * 0.7));
+                        ctx.font = `400 ${dateFontSize}px 'Outfit', Arial, sans-serif`;
+                        ctx.fillStyle = "#e2e8f0";
+                        const timeStr = new Date().toLocaleString('vi-VN');
+                        ctx.fillText(timeStr, 16, height - Math.round(barHeight * 0.15));
+                    }
+
+                    const quality = needCompress ? 0.82 : 1.0;
+                    resolve(canvas.toDataURL("image/jpeg", quality).split(',')[1]);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // Tải ảnh lên Google Drive
+    async function handleUpload() {
+        if (selectedFiles.length === 0) {
+            showToast("⚠️ Vui lòng chọn ít nhất 1 ảnh trước khi tải!");
+            return;
+        }
+
+        const conf = getConfig();
+        if (!conf.scriptUrl || conf.scriptUrl.includes("placeholder")) {
+            showToast("⚠️ Vui lòng bấm vào icon Bánh Răng để điền URL Google Apps Script!");
+            settingsModal.classList.add('active');
+            return;
+        }
+
+        const btnUpload = document.getElementById('btnUpload');
+        const statusBox = document.getElementById('statusBox');
+        const resultContainer = document.getElementById('resultContainer');
+        const resultList = document.getElementById('resultList');
+
+        btnUpload.disabled = true;
+        btnUpload.innerHTML = `<span class="spinner"></span> <span>Đang xử lý & gửi Drive...</span>`;
+
+        statusBox.style.display = "block";
+        resultContainer.style.display = "block";
+
+        const category = document.getElementById('categorySelect').value;
+        const addDatePrefix = document.getElementById('chkDatePrefix').checked;
+        const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+
+        uploadedUrls = [];
+
+        for (let i = 0; i < selectedFiles.length; i++) {
+            const file = selectedFiles[i];
+            statusBox.innerHTML = `⚙️ Đang xử lý & tải lên [${i + 1}/${selectedFiles.length}]: <b>${file.name}</b>`;
+            statusBox.style.color = "var(--accent-primary)";
+
+            try {
+                const base64 = await processImage(file);
+                const prefix = addDatePrefix ? `${category}_${dateStr}_` : `${category}_`;
+                const safeName = `${prefix}${Date.now()}_${i + 1}.jpg`;
+
+                const payload = {
+                    base64: base64,
+                    type: "image/jpeg",
+                    name: safeName,
+                    category: category
+                };
+
+                const res = await fetch(conf.scriptUrl, {
+                    method: "POST",
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await res.json();
+                if (data.status === "success") {
+                    uploadedUrls.push(data.url);
+
+                    const card = document.createElement('div');
+                    card.className = 'result-card';
+                    card.innerHTML = `
+                        <img class="result-thumb" src="${data.url}" alt="${file.name}">
+                        <div class="result-info">
+                            <div class="result-name">${data.name}</div>
+                            <div class="result-url">${data.url}</div>
+                        </div>
+                        <div class="result-btns">
+                            <button class="btn-sm" onclick="copyText('${data.url}')">Copy</button>
+                            <button class="btn-sm" onclick="copyHtmlTag('${data.url}', '${file.name}')">&lt;img&gt;</button>
+                            <a class="btn-sm btn-sm-warm" href="${data.url}" target="_blank">Xem</a>
+                        </div>
+                    `;
+                    resultList.prepend(card);
+                } else {
+                    showToast(`❌ Lỗi tải ảnh ${file.name}: ${data.message || 'Thất bại'}`);
+                }
+            } catch (err) {
+                console.error(err);
+                showToast(`❌ Lỗi kết nối khi tải ảnh ${file.name}`);
+            }
+        }
+
+        statusBox.innerHTML = `🎉 Đã hoàn thành tải ${uploadedUrls.length}/${selectedFiles.length} ảnh!`;
+        statusBox.style.color = "var(--success)";
+
+        // Tự động sao chép
+        if (document.getElementById('chkAutoCopy').checked && uploadedUrls.length > 0) {
+            copyAllUrls();
+        }
+
+        btnUpload.disabled = false;
+        btnUpload.innerHTML = `
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            <span>TẢI THÊM ẢNH KHÁC</span>
+        `;
+        selectedFiles = [];
+        renderPreviews();
+    }
+
+    // Sao chép liên kết
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast("📋 Đã copy link CDN vào bộ nhớ tạm!");
+        });
+    }
+
+    function copyHtmlTag(url, alt) {
+        const tag = `<img src="${url}" alt="${alt}" loading="lazy" />`;
+        navigator.clipboard.writeText(tag).then(() => {
+            showToast("📋 Đã copy thẻ HTML &lt;img&gt;!");
+        });
+    }
+
+    function copyAllUrls() {
+        if (uploadedUrls.length === 0) return;
+        navigator.clipboard.writeText(uploadedUrls.join("\n")).then(() => {
+            showToast(`📋 Đã copy toàn bộ ${uploadedUrls.length} liên kết ảnh!`);
+        });
+    }
+
+    // Thư viện ảnh Drive (Tab 2)
+    async function loadDriveGallery() {
+        const conf = getConfig();
+        const grid = document.getElementById('galleryGrid');
+        if (!conf.scriptUrl || conf.scriptUrl.includes("placeholder")) {
+            grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:30px; color:var(--text-secondary);">Vui lòng cài đặt URL Google Apps Script trước để duyệt ảnh.</div>`;
+            return;
+        }
+
+        const cat = document.getElementById('galleryCategory').value;
+        grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:40px;"><span class="spinner"></span> Đang tải danh sách ảnh từ Drive...</div>`;
+
+        try {
+            const url = `${conf.scriptUrl}?action=list&category=${cat}`;
+            const res = await fetch(url);
+            const data = await res.json();
+
+            if (data.status === "success" && data.files && data.files.length > 0) {
+                grid.innerHTML = "";
+                data.files.forEach(f => {
+                    const el = document.createElement('div');
+                    el.className = 'gallery-card';
+                    el.innerHTML = `
+                        <img class="gallery-card-img" src="${f.thumb}" alt="${f.name}" loading="lazy" onclick="window.open('${f.url}', '_blank')">
+                        <div class="gallery-card-body">
+                            <div class="gallery-card-title" title="${f.name}">${f.name}</div>
+                            <div class="gallery-card-actions">
+                                <button class="btn-sm" onclick="copyText('${f.url}')">Copy Link</button>
+                                <a class="btn-sm btn-sm-warm" href="${f.url}" target="_blank">Xem</a>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(el);
+                });
+            } else {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--text-secondary);">Thư mục này chưa có ảnh nào. Hãy qua Tab "Tải & Lấy Link" để up ảnh nhé!</div>`;
+            }
+        } catch (err) {
+            console.error(err);
+            grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:30px; color:var(--danger);">Không thể kết nối lấy ảnh từ Google Drive. Kiểm tra lại URL Apps Script!</div>`;
+        }
+    }
+</script>
+
+</body>
+</html>
